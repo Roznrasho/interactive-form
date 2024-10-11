@@ -20,14 +20,15 @@ let ageToday = 38;
 //console.log8("ageToday + yearOfBirth");
 
 
-const userName = document.getElementById("name").value;
-const country = document.getElementById("country").value;
-const yearOfBirth = document.getElementById("year").value;
+const userName = document.getElementById("name");
+const country = document.getElementById("country");
+const yearOfBirth = document.getElementById("year");
 const form = document.getElementById("user-form");
-const messageContent = document.getElementById("message-content").textContent;
+const messageContent = document.getElementById("message-content");
 
 
 // funktion syntax
+const currentYear = new Date ().getFullYear();
 
 const consoleLogs = () =>{
  console.log("Hallo mein lieber Browser");
@@ -37,8 +38,17 @@ const consoleLogs = () =>{
 // consoleLogs();
 
 // console.log("Noch Mal loggen");
+console.log(`Das Yahr ist ${currentYear}. Hurraaay!!!`);
 
 form.addEventListener("submit",(event) => {
     event.preventDefault();
     consoleLogs();
+    //Benutzerinformation aus Formuiar ausgeben
+    console.log(`Name: ${userName.value}`);
+    console.log(`Contry: ${country.value}`);
+    console.log(`Alter: ${currentYear - yearOfBirth.value}`);
+    messageContent.textContent =`Hallo, du bist: ${userName.value},
+     du kommst aus: ${country.value},
+      du bist: ${currentYear - yearOfBirth.value} alt.
+     Herzlich Willkommen 👋 `;
 });
